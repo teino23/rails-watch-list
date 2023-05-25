@@ -1,0 +1,36 @@
+
+<div class= "container d-flex justify-content-around">
+  <div class= "row col-5">
+      <h1> My Lists</h1>
+        <ul class="list-group ">
+        <% @lists.each do |i| %>
+          <li class="list-group-item">
+            <p><%= link_to i.name, list_path(i) %></p>
+          </li>
+         <% end %>
+         </ul>
+  </div>
+
+<div class= "row col-6">
+      <h1> My Movies</h1>
+        <ul class="list-group ">
+        <% @movies.each do |i| %>
+          <li class="list-group-item">
+            <p><%= i.title%></p>
+          </li>
+         <% end %>
+         </ul>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+   <%=  link_to "Add new list ", new_list_path, class: "btn-primary"%>
