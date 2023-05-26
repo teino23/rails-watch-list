@@ -1,36 +1,32 @@
 
 <div class= "container d-flex justify-content-around">
-  <div class= "row col-5">
-      <h1> My Lists</h1>
-        <ul class="list-group ">
-        <% @lists.each do |i| %>
-          <li class="list-group-item">
-            <p><%= link_to i.name, list_path(i) %></p>
-          </li>
-         <% end %>
-         </ul>
-  </div>
-
 <div class= "row col-6">
       <h1> My Movies</h1>
         <ul class="list-group ">
         <% @movies.each do |i| %>
           <li class="list-group-item">
-            <p><%= i.title%></p>
+            <h2><strong> Title:</strong>          <%= i.title%></h2>
+            <p><%=  i.overview%></p>
+            <p><strong>Rating:</strong>          <%=  i.rating%></p>
+            <img class="border border-primary"src=<%= i.poster_url%> alt="movies poster" width="200" height="300">
+             <div class= "btn btn-light m-3 "><%=link_to "", new_list_path, class:"fa-regular fa-bookmark"%></div>
           </li>
          <% end %>
          </ul>
   </div>
 
+  <div class= "row col-5">
+        <ul class="list-group ">
+      <h1> My Lists</h1>
+        <% @lists.each do |i| %>
+          <li class="list-group-item">
+            <p class="bg-success p-2 text-dark bg-opacity-10 text-center"><%= link_to i.name, list_path(i) %></p>
+
+          </li>
+         <% end %>
+   <div class= "btn btn-success m-3"><%=link_to "Add new list ", new_list_path, class:"btn-primary"%></div>
+         </ul>
+  </div>
+
+
 </div>
-
-
-
-
-
-
-
-
-
-
-   <%=  link_to "Add new list ", new_list_path, class: "btn-primary"%>

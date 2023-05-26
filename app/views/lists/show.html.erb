@@ -1,2 +1,22 @@
-<h2><%= @list.name %></h2>
-   <%=  link_to "go back", lists_path, class: "btn-primary"%>
+<div
+  class="bg-image p-5 text-center shadow-1-strong rounded mb-5 text-white"
+  style="background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/003.webp');"
+>
+<div class= " justify-content-center m-5">
+<h2> Your list: </h2>
+
+<h1><%= @list.name%></h1>
+<div class="container">
+<div class="row justify-content-around ">
+<% @list.movies.each do |i| %>
+  <div class="card col-6 m-4" style="width: 24rem;">
+    <img class="card-img-top" src= <%= i.poster_url%> % alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title text-primary"> <%= i.title%></h5>
+        <p class="card-text text-primary"><%= i.overview%></p>
+      <div class= "btn btn-info"><%=  link_to "Go back", lists_path, class: "btn-primary"%></div>
+      <div class= "btn btn-info m-3"><%= link_to "Add a new bookmark", new_list_bookmark_path(@list) %></div>
+    </div>
+  </div>
+<%end%>
+</div>
